@@ -4,7 +4,7 @@ This serverless app... TODO
 
 ## App Architecture
 
-TODO: arch diagram
+![Lambda-Versions-Deleter](https://github.com/shwetaskatdare/lambda-versions-deleter/raw/master/images/lambda-versions-deleter.png)
 
 ## Installation Instructions
 
