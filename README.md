@@ -4,7 +4,7 @@ This serverless app... TODO
 
 ## App Architecture
 
-![Lambda-Versions-Deleter](https://github.com/shwetaskatdare/lambda-versions-deleter/raw/master/images/lambda-versions-deleter.png)
+![Lambda-Versions-Deleter](https://github.com/shwetaskatdare/lambda-versions-deleter/raw/master/images/lambda-versions-deleter-new.png)
 
 ## Installation Instructions
 
@@ -19,7 +19,7 @@ This serverless app... TODO
 
 ## App Outputs
 
-1. `MyFunctionName` - My Lambda function name.
+1. `LambdaVersionsDeleter` - Lambda Versions deleter.
 1. ...
 
 ## License Summary
