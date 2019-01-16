@@ -29,7 +29,7 @@ Parameters:
   LambdaExecutionSchedule:
     Type: String
     Description: Specify the schedule expression to invoke LambdaVersionsDeleter using https://docs.aws.amazon.com/lambda/latest/dg/tutorial-scheduled-events-schedule-expressions.html
-    Default: cron(0 12 * * *)
+    Default: cron(0 12 * * ? *)
 
 Resources:
   LambdaVersionsDeleter:
