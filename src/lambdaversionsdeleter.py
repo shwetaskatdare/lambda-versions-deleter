@@ -5,9 +5,18 @@ import lambdainit  # noqa: F401
 
 import lambdalogging
 
+import core
+
 LOG = lambdalogging.getLogger(__name__)
 
 
 def handler(event, context):
-    """Lambda function handler."""
+    """Delete lambda function versions for the lambda function mentioned in environment variables."""
     LOG.info('Received event: %s', event)
+    function_versions = core.list_function_versions()
+
+    versions_to_delete = core.versions_to_delete(function_versions)
+
+    if versions_to_delete:
+        for version_num in versions_to_delete:
+            core.delete_function_version(version_num)

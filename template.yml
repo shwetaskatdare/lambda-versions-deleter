@@ -23,6 +23,9 @@ Parameters:
     Type: String
     Description: Log level for Lambda function logging, e.g., ERROR, INFO, DEBUG, etc
     Default: INFO
+  FunctionArn:
+    Type: String
+    Description: Specify lambda function ARN you want to delete versions of.
 
 Resources:
   LambdaVersionsDeleter:
@@ -36,6 +39,7 @@ Resources:
       Environment:
         Variables:
           LOG_LEVEL: !Ref LogLevel
+          FUNCTION_ARN: !Ref FunctionArn
       Events:
         LambdaVersionsDeleterSchedule:
           Type: Schedule
