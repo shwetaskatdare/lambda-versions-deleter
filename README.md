@@ -16,7 +16,7 @@ A serverless app could have multiple lambda functions. With continuous deploymen
 
 1. `LogLevel` (optional) - Log level for Lambda function logging, e.g., ERROR, INFO, DEBUG, etc. Default: INFO
 1. `FunctionArn` (required) - Specify ARN of a Lambda function for which you want the versions to be deleted
-1. `LambdaExectionSchedule` (required) - Specify the schedule expression to invoke LambdaVersionsDeleter using https://docs.aws.amazon.com/lambda/latest/dg/tutorial-scheduled-events-schedule-expressions.html
+1. `LambdaExectionSchedule` (required) - Specify the schedule expression to invoke LambdaVersionsDeleter using https://docs.aws.amazon.com/lambda/latest/dg/tutorial-scheduled-events-schedule-expressions.html. Default: Scheduled to run once everyday at 12 pm UTC.
 
 ## App Outputs
 
