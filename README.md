@@ -25,4 +25,4 @@ A serverless app could have multiple lambda functions. With continuous deploymen
 
 ## License Summary
 
-This code is made available under the Apache License 2.0 license. See the LICENSE file.
+This code is made available under the TODO license. See the LICENSE file.
