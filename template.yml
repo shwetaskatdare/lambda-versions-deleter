@@ -25,7 +25,11 @@ Parameters:
     Default: INFO
   FunctionArn:
     Type: String
-    Description: Specify lambda function ARN you want to delete versions of.
+    Description: Specify ARN of a Lambda function for which you want the versions to be deleted.
+  LambdaExecutionSchedule:
+    Type: String
+    Description: Specify the schedule expression to invoke LambdaVersionsDeleter using https://docs.aws.amazon.com/lambda/latest/dg/tutorial-scheduled-events-schedule-expressions.html
+    Default: cron(0 12 * * *)
 
 Resources:
   LambdaVersionsDeleter:
@@ -36,6 +40,14 @@ Resources:
       Runtime: python3.7
       Tracing: Active
       Timeout: 60
+      Policies:
+        - Version: '2012-10-17' # PolicyDocument
+          Statement: 
+            - Effect: Allow
+              Action:
+                - lambda:ListVersionsByFunction
+                - lambda:DeleteFunction
+              Resource: !Ref FunctionArn
       Environment:
         Variables:
           LOG_LEVEL: !Ref LogLevel
@@ -44,7 +56,8 @@ Resources:
         LambdaVersionsDeleterSchedule:
           Type: Schedule
           Properties:
-            Schedule: rate(1 minute) # TODO: Parameterize this
+            Schedule: !Ref LambdaExecutionSchedule
+
 
 Outputs:
   LambdaVersionsDeleter:

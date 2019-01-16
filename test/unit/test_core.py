@@ -11,14 +11,8 @@ def test_list_function_versions(mocker):
 def test_versions_to_delete_none(mocker):
     versions_response = {
         'Versions': [
-            {
-                'Version': 10,
-                'LastModified': '01/15'
-            },
-            {
-                'Version': 10,
-                'LastModified': '02/10'
-            }
+            { 'Version': '$Latest', 'LastModified': 100},
+            { 'Version': 2, 'LastModified': 99},
         ]
     }
 
