@@ -1,5 +1,6 @@
 """Core App logic."""
 import boto3
+from botocore.exceptions import ClientError
 
 import lambdalogging
 
@@ -16,10 +17,14 @@ SORT_KEY = 'LastModified'
 
 def list_function_versions():
     """List versions of function."""
-    function_versions = LAMBDA_CLIENT.list_versions_by_function(
-        FunctionName=config.FUNCTION_ARN,
-        MaxItems=MAX_ITEMS
-    )
+    try:
+        function_versions = LAMBDA_CLIENT.list_versions_by_function(
+            FunctionName=config.FUNCTION_ARN,
+            MaxItems=MAX_ITEMS
+        )
+    except ClientError as e:
+        LOG.info('Following error occured. %s', e)
+        return None
     return function_versions
 
 

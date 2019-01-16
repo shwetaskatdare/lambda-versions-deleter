@@ -2,11 +2,20 @@ import pytest
 
 import core
 
+from boto3.exceptions import botocore
+from botocore.exceptions import ClientError
 
 def test_list_function_versions(mocker):
     mocker.patch.object(core.LAMBDA_CLIENT, 'list_versions_by_function')
     core.list_function_versions()
     core.LAMBDA_CLIENT.list_versions_by_function.assert_called_with(FunctionName='test function', MaxItems=100)
+
+
+def test_list_function_versions_return_none(mocker):
+    mocker.patch.object(core.LAMBDA_CLIENT, 'list_versions_by_function')
+    core.LAMBDA_CLIENT.list_versions_by_function.side_effect = ClientError({'Error': {'Code': 'ResourceNotFoundException'}}, 'list_versions_by_function')
+    assert core.list_function_versions() == None
+
 
 def test_versions_to_delete_none(mocker):
     versions_response = {

@@ -15,6 +15,10 @@ def handler(event, context):
     LOG.info('Received event: %s', event)
     function_versions = core.list_function_versions()
 
+    if not function_versions:
+        LOG.info("Skipping...")
+        return
+
     versions_to_delete = core.versions_to_delete(function_versions)
 
     if versions_to_delete:

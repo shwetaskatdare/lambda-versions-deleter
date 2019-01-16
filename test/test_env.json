@@ -1,0 +1,5 @@
+{
+    "LambdaVersionsDeleter": {
+        "FUNCTION_ARN": "testFunction"
+    }
+}
