@@ -4,6 +4,8 @@
 
 A serverless app could have multiple lambda functions. With continuous deployments, new versions of lambda functions get created, and there is a possibility that certain functions in your app could hit AWS Lambda's [function memory allocation limit](https://docs.aws.amazon.com/lambda/latest/dg/limits.html) causing deployment failures. To prevent this from happening, here is a Serverless App that you can deploy independently or nest in your existing app which will clean up older versions of a lambda function on a custom schedule.
 
+This app only deletes a maximum of 10 versions of a given lambda function at any time. If a lambda function has less than 10 versions, the app skips processing the event.
+
 ## App Architecture
 
 ![Lambda-Versions-Deleter](https://github.com/shwetaskatdare/lambda-versions-deleter/raw/master/images/lambda-versions-deleter-new.png)
