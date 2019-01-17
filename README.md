@@ -2,7 +2,7 @@
  
  ![Build Status](https://codebuild.us-east-1.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoiazJzeG1nUjFVTWRMaXk0WEtmVWdLdlJxQ2g2VHlrOU83MUJDeTJ3ZzlJV1oxMU4rNTNwSFRzTkVNY2Z0UmVjeGM1eFkzOHRhZHIxRi9mM0lRNE94ODNNPSIsIml2UGFyYW1ldGVyU3BlYyI6ImtIZCtvSEF0NmZsLzRjK2siLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&branch=master)
 
-A serverless app could have multiple lambda functions. With continuous deployments, new versions of lambda functions get created, and there is a possibility that certain functions in your app could hit AWS Lambda's [function memory allocation limit](https://docs.aws.amazon.com/lambda/latest/dg/limits.html) causing deployment failures. To prevent this from happening, here is a Serverless App that you can nest in your existing app which will clean up older versions of a lambda function on a custom schedule.
+A serverless app could have multiple lambda functions. With continuous deployments, new versions of lambda functions get created, and there is a possibility that certain functions in your app could hit AWS Lambda's [function memory allocation limit](https://docs.aws.amazon.com/lambda/latest/dg/limits.html) causing deployment failures. To prevent this from happening, here is a Serverless App that you can deploy independently or nest in your existing app which will clean up older versions of a lambda function on a custom schedule.
 
 ## App Architecture
 
@@ -11,7 +11,7 @@ A serverless app could have multiple lambda functions. With continuous deploymen
 ## Installation Instructions
 
 1. [Create an AWS account](https://portal.aws.amazon.com/gp/aws/developer/registration/index.html) if you do not already have one and login
-1. Go to the app's page on the [Serverless Application Repository](TODO) and click "Deploy"
+1. Go to the app's page on the [Serverless Application Repository](https://console.aws.amazon.com/serverlessrepo/home?region=us-east-1#/published-applications/arn:aws:serverlessrepo:us-east-1:414864144042:applications~lambda-versions-deleter) and click "Deploy"
 1. Provide the required app parameters (see parameter details below) and click "Deploy"
 
 ## App Parameters
