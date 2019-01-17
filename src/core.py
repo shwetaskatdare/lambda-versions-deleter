@@ -13,6 +13,7 @@ MAX_ITEMS = 100
 NUMBER_OF_VERSIONS_TO_KEEP = 10
 VERSIONS_KEY = 'Versions'
 SORT_KEY = 'LastModified'
+LATEST_VERSION = '$LATEST'
 
 
 def list_function_versions():
@@ -46,6 +47,8 @@ def versions_to_delete(function_versions):
         LOG.info('Deleting %s versions', num_of_versions_to_delete)
         # Fetch oldest versions to delete
         oldest_versions = sorted(versions, key=lambda version: version[SORT_KEY])
+        # exclude latest version
+        oldest_versions = [version for version in oldest_versions if version['Version'] != LATEST_VERSION]
         versions_to_delete = oldest_versions[:num_of_versions_to_delete]
         version_numbers_to_delete = [version['Version'] for version in versions_to_delete]
         return version_numbers_to_delete
