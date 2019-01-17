@@ -11,7 +11,7 @@ Metadata:
     # paths are relative to .aws-sam/build directory
     LicenseUrl: ../../LICENSE
     ReadmeUrl: ../../README.md
-    Labels: [serverless]
+    Labels: [aws, lambda, cloudwatch, serverless]
     HomePageUrl: https://github.com/shwetaskatdare/lambda-versions-deleter
     # Update the semantic version and run sam publish to publish a new version of your app
     SemanticVersion: 0.0.1
